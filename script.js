@@ -1,10 +1,21 @@
 var timeEl = document.querySelector(".time");
-var question = document.querySelector(".question");
-var answer = document.querySelector(".answer");
+
+
 
 var startButton = document.querySelector("#start-btn");
 
+var questionContainer = document.querySelector("#question-container");
+
+var question = document.querySelector("#question");
+
+var option1 = document.querySelector("#option1");
+
+var option2 = document.querySelector("#option2");
+
+var answer = document.querySelector("#answer-buttons")
+
 startButton.addEventListener("click", startGame);
+
 // Timer
 // var secondsLeft = 10;
 
@@ -29,46 +40,54 @@ startButton.addEventListener("click", startGame);
 
 // Containers for questions and answers
 
+var i = 0;
+
 function startGame(){
     console.log("Started");
+    question.textContent = questions[i].question;
+    option1.textContent = questions[i].answers[0].text;
+    option2.textContent = questions[i].answers[1].text;
+    answer.addEventListener("click", checkAnswer());
 }
 
-function nextQuestion(){
+
+function checkAnswer(e){
+    if (correct = true){
+        console.log("that's right!");
+    }
 
 }
+var questions = [
+    {
+        question: "What function logs its contents in the browser console?",
 
-function selectAnswer(){
+        answers: [
+            { text: "console.log()", correct: true },
+            { text: "something else", correct: false},
+        ]
+    },
+    
+    {
+        question: "Is this a stupid question?", 
+        
+        answers: [
+            { text: "yes", correct: true },
+            { text: "no", correct: false},
 
-}
-var qBank = ["What function logs its contents in the browser console?", "Is this a stupid question?", "What are you, some kind of tough guy?",];
+
+        ]
+    },
+    {
+        question: "What are you, some kind of tough guy?",
+
+        answers: [
+            { text: "no", correct: true },
+            { text: "yes", correct: false},
+
+        ]
+    }
+    
+
+];
 
 var key = ["console.log()", "yes", "no"];
-
-// ask questions and check for accuracy
-
-function quiz(){
-    for (var i = 0; i < qBank.length; i++){
-    var q = qBank[Math.floor(Math.random() * qBank.length)];
-
-    question.textContent = q;
-
-    
-    
-    // btn.addEventListener("click", function(){
-    //     if(answer.textContent === key[i]){
-    //         alert("You're right!");
-    //           }
-    //      else{
-    //         alert("You're wrong! The answer to that question is " + key[i]+".");
-    //         }
-           
-    //         }
-    //         )
-    console.log(qBank.indexOf(q));
-    }
-    
-
-    
-    }
-
-quiz();
