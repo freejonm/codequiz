@@ -12,12 +12,15 @@ var option1 = document.querySelector("#option1");
 
 var option2 = document.querySelector("#option2");
 
-var answer = document.querySelector("#answer-buttons")
+var answerClick = document.querySelector(".answer-buttons")
 
-startButton.addEventListener("click", startGame);
+var next = document.querySelector("#next-btn");
+
+startButton.addEventListener("click", runQuiz);
 
 // Timer
-// var secondsLeft = 10;
+var secondsLeft = 10;
+var secondsPenalty = 5;
 
 // function setTime() {
 //   var timerInterval = setInterval(function() {
@@ -38,56 +41,75 @@ startButton.addEventListener("click", startGame);
   
 //   setTime();
 
-// Containers for questions and answers
 
 var i = 0;
+var score = 0;
 
-function startGame(){
-    console.log("Started");
+function runQuiz(){
     question.textContent = questions[i].question;
-    option1.textContent = questions[i].answers[0].text;
-    option2.textContent = questions[i].answers[1].text;
-    answer.addEventListener("click", checkAnswer());
+    option1.textContent = questions[i].choiceA;
+    option2.textContent = questions[i].choiceB; 
+
+    option1.addEventListener("click", function(){
+    
+        if(option1.textContent === questions[i].corrAnswer){
+            alert("you're right!");
+            score++;
+        }
+        
+        else{
+            alert("you're wrong!");
+            
+        }
+    console.log(score);
+    console.log(secondsLeft);
+    i++;
+    runQuiz();
+    
+    })
+
+    option2.addEventListener("click", function(){
+    
+        if(option2.textContent === questions[i].corrAnswer){
+            alert("you're right!");
+            score++;
+        }
+        
+        else{
+            alert("you're wrong!");
+            secondsLeft = secondsLeft - secondsPenalty;
+        }
+    console.log(score);
+    console.log(secondsLeft);
+    i++;
+    runQuiz();
+    })
+
 }
 
 
-function checkAnswer(e){
-    if (correct = true){
-        console.log("that's right!");
-    }
-
-}
 var questions = [
     {
         question: "What function logs its contents in the browser console?",
 
-        answers: [
-            { text: "console.log()", correct: true },
-            { text: "something else", correct: false},
-        ]
+        corrAnswer: "console.log()",
+
+        choiceA: "console.log()",
+        choiceB: "something else",
+
     },
     
     {
         question: "Is this a stupid question?", 
         
-        answers: [
-            { text: "yes", correct: true },
-            { text: "no", correct: false},
+        corrAnswer: "yes",
 
-
-        ]
+        choiceA: "no",
+        choiceB: "yes",
     },
-    {
-        question: "What are you, some kind of tough guy?",
-
-        answers: [
-            { text: "no", correct: true },
-            { text: "yes", correct: false},
-
-        ]
-    }
+   
     
 
 ];
 
-var key = ["console.log()", "yes", "no"];
+
