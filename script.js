@@ -1,7 +1,10 @@
 var timeEl = document.querySelector(".time");
 var question = document.querySelector(".question");
 var answer = document.querySelector(".answer");
-var btn = document.querySelector("#btn");
+
+var startButton = document.querySelector("#start-btn");
+
+startButton.addEventListener("click", startGame);
 // Timer
 // var secondsLeft = 10;
 
@@ -26,6 +29,17 @@ var btn = document.querySelector("#btn");
 
 // Containers for questions and answers
 
+function startGame(){
+    console.log("Started");
+}
+
+function nextQuestion(){
+
+}
+
+function selectAnswer(){
+
+}
 var qBank = ["What function logs its contents in the browser console?", "Is this a stupid question?", "What are you, some kind of tough guy?",];
 
 var key = ["console.log()", "yes", "no"];
@@ -34,9 +48,12 @@ var key = ["console.log()", "yes", "no"];
 
 function quiz(){
     for (var i = 0; i < qBank.length; i++){
-    question.textContent = qBank[Math.floor(Math.random() * qBank.length)];
+    var q = qBank[Math.floor(Math.random() * qBank.length)];
 
-    console.log(qBank[i]);
+    question.textContent = q;
+
+    
+    
     // btn.addEventListener("click", function(){
     //     if(answer.textContent === key[i]){
     //         alert("You're right!");
@@ -47,7 +64,9 @@ function quiz(){
            
     //         }
     //         )
+    console.log(qBank.indexOf(q));
     }
+    
 
     
     }
