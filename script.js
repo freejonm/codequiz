@@ -5,9 +5,9 @@ var question = document.querySelector("#question");
 var option1 = document.querySelector("#option1");
 var option2 = document.querySelector("#option2");
 var answerClick = document.querySelector(".answer-buttons")
-var next = document.querySelector("#next-btn");
 
-var secondsLeft = 10;
+
+var secondsLeft = 100;
 var secondsPenalty = 5;
 
 var i = 0;
@@ -16,34 +16,33 @@ var score = 0;
 
 startButton.addEventListener("click", runQuiz);
 
-// Timer
 
-
-// function setTime() {
-//   var timerInterval = setInterval(function() {
-//     secondsLeft--;
-//     timeEl.textContent = secondsLeft + " seconds left";
-
-//     if(secondsLeft === 0) {
-//       clearInterval(timerInterval);
-//       sendMessage();
-//     }
-
-//   }, 1000);
-// }
-
-// function sendMessage() {
-//     timeEl.textContent = "YOU'RE OUT OF TIME";
-//   }
+function setTime() {
+    var timerInterval = setInterval(function() {
+      secondsLeft--;
+      timeEl.textContent = secondsLeft + " seconds left";
   
-//   setTime();
-
+      if(secondsLeft === 0) {
+        clearInterval(timerInterval);
+        sendMessage();
+      }
+  
+    }, 1000);
+  }
+  
+  function sendMessage() {
+      timeEl.textContent = "YOU'RE OUT OF TIME";
+    }
 
 
 function runQuiz(){
+
+    setTime();
+
     question.textContent = questions[i].question;
     option1.textContent = questions[i].choiceA;
     option2.textContent = questions[i].choiceB; 
+        
 
     option1.addEventListener("click", function(){
     
@@ -54,8 +53,7 @@ function runQuiz(){
         
         else{
             alert("you're wrong!");
-            secondsLeft = secondsLeft - secondsPenalty;
-    
+            secondsLeft--;
         }
     console.log(score);
     console.log(secondsLeft);
@@ -73,10 +71,9 @@ function runQuiz(){
         
         else{
             alert("you're wrong!");
-            secondsLeft = secondsLeft - secondsPenalty;
+            secondsLeft--;
         }
-    console.log(score);
-    console.log(secondsLeft);
+  
     i++;
     runQuiz();
     })
