@@ -2,10 +2,10 @@ var timeEl = document.querySelector(".timer");
 var startButton = document.querySelector("#start-btn");
 var startScreen = document.querySelector("#start-screen");
 var questionContainer = document.querySelector("#question-container");
-
 var question = document.querySelector("#question");
 var option1 = document.querySelector("#option1");
 var option2 = document.querySelector("#option2");
+var result = document.querySelector("#result")
 
 
 
@@ -52,7 +52,7 @@ function runQuiz(){
     option1.addEventListener("click", function(){
     
         if(option1.textContent === questions[i].corrAnswer){
-            alert("you're right!");
+            result.textContent = "you're right!";
             score++;
         }
         
