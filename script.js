@@ -57,7 +57,7 @@ function runQuiz(){
         }
         
         else{
-            alert("you're wrong!");
+            result.textContent = "you're wrong!";
             for (let i = 0; i < 2; i++) {
                 secondsLeft -= 5;   
             }
@@ -70,12 +70,12 @@ function runQuiz(){
     option2.addEventListener("click", function(){
     
         if(option2.textContent === questions[i].corrAnswer){
-            alert("you're right!");
+            result.textContent = "you're right!";
             score++;
         }
         
         else{
-            alert("you're wrong!");
+            result.textContent = "you're wrong!";
             for (let i = 0; i < 2; i++) {
                 secondsLeft -= 5;   
             }
