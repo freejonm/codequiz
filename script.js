@@ -11,6 +11,7 @@ var next = document.querySelector("#nextQuestion");
 
 var secondsLeft = 100;
 var secondsPenalty = 5;
+var totalScore = 0;
 
 var i = 0;
 var score = 0;
