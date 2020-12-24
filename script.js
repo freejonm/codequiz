@@ -113,7 +113,13 @@ function runQuiz(){
         alert("Your total score is " + totalScore);
         
         if (confirm("Would you like to save your initials and score?")){
-            window.location.href="highscores.html";
+            var user = {
+                initials: prompt("Please enter your initials."),
+                points: totalScore  
+            };
+
+            localStorage.setItem("user", user);
+            console.log(user);
         }
 
         else {
