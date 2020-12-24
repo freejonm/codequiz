@@ -16,7 +16,7 @@ var i = 0;
 var score = 0;
 var totalScore = score + secondsLeft;
 
-var questions = [
+var key = [
     {
         question: "What function logs its contents in the browser console?",
 
@@ -60,19 +60,21 @@ function sendMessage() {
 
 function runQuiz(){
 
+    if((i < key.length) && (secondsLeft > 0)){
     startScreen.classList.add("hide");
     questionContainer.classList.remove("hide");
 
-    question.textContent = questions[i].question;
-    option1.textContent = questions[i].choiceA;
-    option2.textContent = questions[i].choiceB; 
+    question.textContent = key[i].question;
+    option1.textContent = key[i].choiceA;
+    option2.textContent = key[i].choiceB; 
 
 
     option1.addEventListener("click", function(){
     
-        if(option1.textContent === questions[i].corrAnswer){
+        if(option1.textContent === key[i].corrAnswer){
             alert("Correct");
             score++;
+            console.log(score);
         }
         
         else{
@@ -88,9 +90,10 @@ function runQuiz(){
 
     option2.addEventListener("click", function(){
     
-        if(option2.textContent === questions[i].corrAnswer){
+        if(option2.textContent === key[i].corrAnswer){
             alert("Correct");
             score++;
+            console.log(score);
         }
         
         else{
@@ -102,7 +105,11 @@ function runQuiz(){
         }
     i++;
     runQuiz();
-    })
+    })}
+
+    else{
+        alert("Your total score is " + totalScore);
+    }
     
 }
 
