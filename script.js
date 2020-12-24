@@ -29,12 +29,30 @@ var key = [
     },
     
     {
-        question: "Is this a stupid question?", 
+        question: "Which of the following best describes a variable declared within a funciton?", 
         
-        answer: "yes",
+        answer: "local",
 
-        choiceA: "no",
-        choiceB: "yes",
+        choiceA: "global",
+        choiceB: "local",
+    },
+
+    {
+        question: "JQuery is an example of an _______.", 
+        
+        answer: "API",
+
+        choiceA: "API",
+        choiceB: "IPA",
+    },
+
+    {
+        question: "JQuery is an example of a _______.", 
+        
+        answer: "API",
+
+        choiceA: "API",
+        choiceB: "IPA",
     },
    
     
