@@ -17,7 +17,6 @@ var totalScore = 0;
 var i = 0;
 var score = 0;
 
-
 var key = [
     {
         question: "What function logs its contents in the browser console?",
@@ -42,6 +41,7 @@ var key = [
 
 ];
 
+
 function setTime() {
     var timerInterval = setInterval(function() {
       secondsLeft--;
@@ -59,7 +59,14 @@ function sendMessage() {
     timeEl.textContent = "YOU'RE OUT OF TIME";
     }
 
-
+function saveScore(){
+    window.location.href="highscores.html";
+         
+    var initials = prompt("Please enter your initials.");
+    
+    var li = document.createElement("li");
+    li.appendChild(document.createTextNode("Initials: " + initials + " / " + "Total score (points + remaining seconds: " + totalScore));
+}
 function runQuiz(){
 
     if((i < key.length) && (secondsLeft > 0)){
@@ -103,7 +110,6 @@ function runQuiz(){
             for (let i = 0; i < 2; i++) {
                 secondsLeft -= 5;   
             }
-            
         }
     i++;
     runQuiz();
@@ -113,6 +119,17 @@ function runQuiz(){
         var totalScore = score + secondsLeft;
         alert("The quiz is complete.")
         alert("Your total score is " + totalScore);
+        if (confirm("Would you like to save your initials and score?")){
+            saveScore();
+            
+        }
+        else {
+            alert("Thanks for playing! Goodbye.");
+            
+            
+
+        }
+
     }
     
 }
