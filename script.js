@@ -5,15 +5,16 @@ var questionContainer = document.querySelector("#question-container");
 var question = document.querySelector("#question");
 var option1 = document.querySelector("#option1");
 var option2 = document.querySelector("#option2");
-var result = document.querySelector("#result")
-
-
+var result = document.querySelector("#result-container");
+var resultMessage = document.querySelector("#result-message");
+var next = document.querySelector("#nextQuestion");
 
 var secondsLeft = 100;
 var secondsPenalty = 5;
 
 var i = 0;
 var score = 0;
+var totalScore = score + secondsLeft;
 
 var questions = [
     {
@@ -58,10 +59,9 @@ function sendMessage() {
 
 
 function runQuiz(){
+
     startScreen.classList.add("hide");
     questionContainer.classList.remove("hide");
-
-    setTime();
 
     question.textContent = questions[i].question;
     option1.textContent = questions[i].choiceA;
@@ -71,40 +71,39 @@ function runQuiz(){
     option1.addEventListener("click", function(){
     
         if(option1.textContent === questions[i].corrAnswer){
-            result.textContent = "you're right!";
+            alert("Correct");
             score++;
         }
         
         else{
-            result.textContent = "you're wrong!";
+            alert("Incorrect");
             for (let i = 0; i < 2; i++) {
                 secondsLeft -= 5;   
             }
         }
+
     i++;
     runQuiz();
-    
     })
 
     option2.addEventListener("click", function(){
     
         if(option2.textContent === questions[i].corrAnswer){
-            result.textContent = "you're right!";
+            alert("Correct");
             score++;
         }
         
         else{
-            result.textContent = "you're wrong!";
+            alert("Incorrect");
             for (let i = 0; i < 2; i++) {
                 secondsLeft -= 5;   
             }
             
         }
-  
     i++;
     runQuiz();
     })
-
+    
 }
 
 startButton.addEventListener("click", function(){
