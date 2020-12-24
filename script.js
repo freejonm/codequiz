@@ -8,6 +8,7 @@ var option2 = document.querySelector("#option2");
 var result = document.querySelector("#result-container");
 var resultMessage = document.querySelector("#result-message");
 var next = document.querySelector("#nextQuestion");
+var highScores = document.querySelector("#highscores");
 
 var secondsLeft = 100;
 var secondsPenalty = 5;
@@ -110,6 +111,7 @@ function runQuiz(){
 
     else{
         var totalScore = score + secondsLeft;
+        alert("The quiz is complete.")
         alert("Your total score is " + totalScore);
     }
     
