@@ -14,11 +14,30 @@ var secondsPenalty = 5;
 
 var i = 0;
 var score = 0;
-var questionNumber = i + 1;
 
+var questions = [
+    {
+        question: "What function logs its contents in the browser console?",
 
-startButton.addEventListener("click", runQuiz);
+        corrAnswer: "console.log()",
 
+        choiceA: "console.log()",
+        choiceB: "something else",
+
+    },
+    
+    {
+        question: "Is this a stupid question?", 
+        
+        corrAnswer: "yes",
+
+        choiceA: "no",
+        choiceB: "yes",
+    },
+   
+    
+
+];
 
 function setTime() {
     var timerInterval = setInterval(function() {
@@ -33,8 +52,8 @@ function setTime() {
     }, 1000);
   }
   
-  function sendMessage() {
-      timeEl.textContent = "YOU'RE OUT OF TIME";
+function sendMessage() {
+    timeEl.textContent = "YOU'RE OUT OF TIME";
     }
 
 
@@ -88,30 +107,9 @@ function runQuiz(){
 
 }
 
-
-var questions = [
-    {
-        question: "What function logs its contents in the browser console?",
-
-        corrAnswer: "console.log()",
-
-        choiceA: "console.log()",
-        choiceB: "something else",
-
-    },
-    
-    {
-        question: "Is this a stupid question?", 
-        
-        corrAnswer: "yes",
-
-        choiceA: "no",
-        choiceB: "yes",
-    },
-   
-    
-
-];
-
+startButton.addEventListener("click", function(){
+    setTime();
+    runQuiz();
+});
 
 
