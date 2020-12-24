@@ -14,13 +14,13 @@ var secondsPenalty = 5;
 
 var i = 0;
 var score = 0;
-var totalScore = score + secondsLeft;
+
 
 var key = [
     {
         question: "What function logs its contents in the browser console?",
 
-        corrAnswer: "console.log()",
+        answer: "console.log()",
 
         choiceA: "console.log()",
         choiceB: "something else",
@@ -30,7 +30,7 @@ var key = [
     {
         question: "Is this a stupid question?", 
         
-        corrAnswer: "yes",
+        answer: "yes",
 
         choiceA: "no",
         choiceB: "yes",
@@ -71,7 +71,7 @@ function runQuiz(){
 
     option1.addEventListener("click", function(){
     
-        if(option1.textContent === key[i].corrAnswer){
+        if(option1.textContent === key[i].answer){
             alert("Correct");
             score++;
             console.log(score);
@@ -90,7 +90,7 @@ function runQuiz(){
 
     option2.addEventListener("click", function(){
     
-        if(option2.textContent === key[i].corrAnswer){
+        if(option2.textContent === key[i].answer){
             alert("Correct");
             score++;
             console.log(score);
@@ -108,6 +108,7 @@ function runQuiz(){
     })}
 
     else{
+        var totalScore = score + secondsLeft;
         alert("Your total score is " + totalScore);
     }
     
