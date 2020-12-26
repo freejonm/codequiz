@@ -10,6 +10,12 @@ liTag.textContent = hsInitials + " - " + hsScore;
 var olEl = document.querySelector("#highscores");
 olEl.appendChild(liTag);
 
+var clear = document.querySelector("#clear");
+clear.addEventListener("click", function(){
+  while (highscores.lastElementChild){
+    highscores.removeChild(highscores.lastElementChild);
+  }
+})
 // sort highscores by score property in descending order
 
 // highscores.sort(function(a, b) {
