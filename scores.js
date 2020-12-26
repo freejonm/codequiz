@@ -1,10 +1,14 @@
-// either get scores from localstorage or set to empty array
-// var highscores = JSON.parse(window.localStorage.getItem("user"));
 
 var hsInitials = localStorage.getItem("initials");
 var hsScore = localStorage.getItem("score");
 console.log(hsInitials);
 console.log(hsScore);
+
+var liTag = document.createElement("li");
+liTag.textContent = hsInitials + " - " + hsScore;
+
+var olEl = document.querySelector("#highscores");
+olEl.appendChild(liTag);
 
 // sort highscores by score property in descending order
 
