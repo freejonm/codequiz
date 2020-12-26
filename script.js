@@ -11,7 +11,7 @@ var secondsLeft = 100;
 var secondsPenalty = 5;
 var totalScore = 0;
 
-var i = 0;
+ var i = 0;
 var score = 0;
 
 var key = [
@@ -21,43 +21,51 @@ var key = [
         answer: "console.log()",
 
         choiceA: "console.log()",
-        choiceB: "something else",
+        choiceB: "yule.log()",
 
     },
+
+    {
+        question: "JQuery is an example of a _______",
+
     
-    {
-        question: "Which of the following best describes a variable declared within a funciton?", 
-        
-        answer: "local",
-
-        choiceA: "global",
-        choiceB: "local",
-    },
-
-    {
-        question: "JQuery is an example of an _______.", 
-        
         answer: "API",
 
+    
         choiceA: "API",
         choiceB: "IPA",
+    
     },
 
     {
-        question: "True or False: javascript is one of the four building blocks of the internet?",
-        
-        answer: "false",
+        question: "True or false: javascript is one of the four building blocks of the internet.",
 
-        choiceA: "true",
-        choiceB: "false",
-    },
-   
     
+        answer: "False",
 
+    
+        choiceA: "True",
+        choiceB: "False",
+    
+    },
+
+    {
+        question: "Which of the following declares a read-only constant?",
+
+    
+        answer: "const",
+
+    
+        choiceA: "var",
+        choiceB: "const",
+    
+    },
+    
 ];
 
 
 function setTime() {
+
     var timerInterval = setInterval(function() {
       secondsLeft--;
       timeEl.textContent = secondsLeft + " seconds left";
@@ -75,10 +83,14 @@ function sendMessage() {
     }
 
 function runQuiz(){
+    
+   
 
     if((i < key.length) && (secondsLeft > 0)){
     startScreen.classList.add("hide");
     questionContainer.classList.remove("hide");
+    
+    
 
     question.textContent = key[i].question;
     option1.textContent = key[i].choiceA;
@@ -89,12 +101,11 @@ function runQuiz(){
         if(option1.textContent === key[i].answer){
             alert("Correct");
             score++;
-            console.log(score);
         }
         else{
             alert("Incorrect");
             for (let i = 0; i < 2; i++) {
-                secondsLeft -= 5;   
+                secondsLeft -= 10;   
             }
         }
 
@@ -103,19 +114,19 @@ function runQuiz(){
     })
 
     option2.addEventListener("click", function(){
-    
+
         if(option2.textContent === key[i].answer){
             alert("Correct");
             score++;
-            console.log(score);
         }
         
         else{
             alert("Incorrect");
             for (let i = 0; i < 2; i++) {
-                secondsLeft -= 5;   
+                secondsLeft -= 10;   
             }
         }
+
         i++;
         runQuiz();
     })
