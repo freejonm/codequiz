@@ -5,10 +5,7 @@ var questionContainer = document.querySelector("#question-container");
 var question = document.querySelector("#question");
 var option1 = document.querySelector("#option1");
 var option2 = document.querySelector("#option2");
-var result = document.querySelector("#result-container");
-var resultMessage = document.querySelector("#result-message");
-var next = document.querySelector("#nextQuestion");
-var highScores = document.querySelector("#highscores");
+
 
 var secondsLeft = 100;
 var secondsPenalty = 5;
@@ -47,12 +44,12 @@ var key = [
     },
 
     {
-        question: "JQuery is an example of a _______.", 
+        question: "True or False: javascript is one of the four building blocks of the internet?",
         
-        answer: "API",
+        answer: "false",
 
-        choiceA: "API",
-        choiceB: "IPA",
+        choiceA: "true",
+        choiceB: "false",
     },
    
     
@@ -89,13 +86,11 @@ function runQuiz(){
 
 
     option1.addEventListener("click", function(){
-    
         if(option1.textContent === key[i].answer){
             alert("Correct");
             score++;
             console.log(score);
         }
-        
         else{
             alert("Incorrect");
             for (let i = 0; i < 2; i++) {
@@ -103,8 +98,8 @@ function runQuiz(){
             }
         }
 
-    i++;
-    runQuiz();
+        i++;
+        runQuiz();
     })
 
     option2.addEventListener("click", function(){
@@ -121,30 +116,26 @@ function runQuiz(){
                 secondsLeft -= 5;   
             }
         }
-    i++;
-    runQuiz();
-    })}
+        i++;
+        runQuiz();
+    })
+    }
 
     else{
-        var totalScore = score + secondsLeft;
         alert("The quiz is complete.")
+        totalScore = score + secondsLeft;
         alert("Your total score is " + totalScore);
         
         if (confirm("Would you like to save your initials and score?")){
-            var user = {
-                initials: prompt("Please enter your initials."),
-                points: totalScore  
-            };
-
-            localStorage.setItem("user", user);
-            console.log(user);
+            var initials = prompt("Please enter your initials");
+            localStorage.setItem("score", totalScore);
+            localStorage.setItem("initials", initials);
+            window.location.href = "highscores.html";
         }
 
         else {
             alert("Thanks for playing! Goodbye.");
             
-            
-
         }
 
     }
