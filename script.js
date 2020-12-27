@@ -6,6 +6,8 @@ var question = document.querySelector("#question");
 var option1 = document.querySelector("#option1");
 var option2 = document.querySelector("#option2");
 
+const scoreBoard = [];
+localStorage.setItem("scoreBoard", scoreBoard);
 
 var secondsLeft = 60;
 var secondsPenalty = 5;
@@ -13,7 +15,7 @@ var totalScore = 0;
 
 var i = 0;
 var score = 0;
-const scoreBoard = [];
+
 
 var key = [
     {
@@ -64,18 +66,13 @@ var key = [
 ];
 
 
-
 function saveScore(){
-    const initials = prompt("Please enter your initials.");
-    const entry = localStorage.getItem("points");
-   
-    scoreBoard.push([JSON.stringify(initials), JSON.stringify(entry)]);
-    
-    localStorage.setItem("scoreBoard", scoreBoard);
 
-    
+    scoreBoard.push(totalScore.toString());
+    console.log(scoreBoard);
 
-    
+
+
 }
 
 function setTime() {
@@ -104,11 +101,11 @@ function endGame(){
     
     alert("Your total score is " + totalScore);
     
-    localStorage.setItem("points", totalScore);
+    
 
     if (confirm("Would you like to save your initials and score?")){
         saveScore();
-        window.location.href = "highscores.html";
+        // window.location.href = "highscores.html";
     }
 
     else {

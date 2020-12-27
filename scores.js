@@ -1,11 +1,12 @@
+const name = localStorage.getItem("initials");
+const userScore = localStorage.getItem("points");
+const scoreBoard = localStorage.getItem("scoreBoard");
 
-const userScores = localStorage.getItem("scoreBoard");
-console.log(userScores);
-
+console.log(scoreBoard);
 
 var liTag = document.createElement("li");
 
-liTag.textContent =  highScores;
+liTag.textContent =  name + " / " + userScore;
 
 var olEl = document.querySelector("#highscores");
 
