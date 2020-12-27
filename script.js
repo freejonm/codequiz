@@ -104,7 +104,10 @@ function timeLoss(){
     secondsLeft = secondsLeft - 5;
 }
 
-
+function nextQuestion(){
+    i++;
+    runQuiz();
+}
 function runQuiz(){
 
     
@@ -129,10 +132,8 @@ function runQuiz(){
             timeLoss();
         }
 
-        i++;
-        console.log(i);
-        runQuiz();
-    })
+        nextQuestion()
+    });
 
     option2.addEventListener("click", function(){
        
@@ -145,8 +146,7 @@ function runQuiz(){
             timeLoss();
         }
 
-        i++;
-        runQuiz();
+        nextQuestion();
     })
     }
 
