@@ -68,16 +68,13 @@ function saveScore(){
     const initials = prompt("Please enter your initials.");
     const entry = localStorage.getItem("points");
     
-    const scoreBoard = localStorage.setItem(JSON.stringify([])); 
-
     const user = {
-        name : initials,
+        name : JSON.stringify(initials),
 
-        points: entry,
+        points: JSON.stringify(entry),
     }
 
-    console.log(user);
-    scoreBoard.push(user);
+    localStorage.setItem("user", JSON.stringify(user));
 }
 
 function setTime() {
@@ -110,7 +107,7 @@ function endGame(){
 
     if (confirm("Would you like to save your initials and score?")){
         saveScore();
-        // window.location.href = "highscores.html";
+        window.location.href = "highscores.html";
     }
 
     else {

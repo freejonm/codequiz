@@ -1,21 +1,9 @@
 
-const scoreBoard = JSON.parse(localStorage.getItem("highscores")) || [];
 
+var user = JSON.parse(localStorage.getItem("username"));
 
-var initials = prompt("Please enter your initials.");
-var score = localStorage.getItem("score")
+console.log(user);
 
-const entry = {
-
-  name : initials,
-
-  points : score,
-
-} 
-
-scoreBoard.push(entry);
-
-console.log(scoreBoard);
 
 // var liTag = document.createElement("li");
 
