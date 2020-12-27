@@ -101,6 +101,9 @@ function endGame(){
     }
 }
 
+function timeLoss(){
+    secondsLeft = secondsLeft - 5;
+}
 
 
 function runQuiz(){
@@ -123,9 +126,7 @@ function runQuiz(){
         }
         else{
             alert("Incorrect");
-            for (let i = 0; i < 2; i++) {
-                secondsLeft -= 10;   
-            }
+            timeLoss();
         }
 
         i++;
@@ -141,9 +142,7 @@ function runQuiz(){
         
         else{
             alert("Incorrect");
-            for (let i = 0; i < 2; i++) {
-                secondsLeft -= 10;   
-            }
+            timeLoss();
         }
 
         i++;
