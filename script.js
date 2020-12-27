@@ -6,8 +6,6 @@ var question = document.querySelector("#question");
 var option1 = document.querySelector("#option1");
 var option2 = document.querySelector("#option2");
 
-const scoreBoard = [];
-localStorage.setItem("scoreBoard", scoreBoard);
 
 var secondsLeft = 60;
 var secondsPenalty = 5;
@@ -68,9 +66,9 @@ var key = [
 
 function saveScore(){
 
-    scoreBoard.push(totalScore.toString());
-    console.log(scoreBoard);
-
+    initials = prompt("Please enter your initials.");
+    localStorage.setItem("initials", initials);
+    localStorage.setItem("score", totalScore);
 
 
 }
@@ -105,11 +103,12 @@ function endGame(){
 
     if (confirm("Would you like to save your initials and score?")){
         saveScore();
-        // window.location.href = "highscores.html";
+        window.location.href = "highscores.html";
     }
 
     else {
         alert("Thanks for playing! Goodbye.");
+        window.location.href = "highscores.html";
         
     }
 }
