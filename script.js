@@ -7,7 +7,7 @@ var option1 = document.querySelector("#option1");
 var option2 = document.querySelector("#option2");
 
 
-var secondsLeft = 100;
+var secondsLeft = 10;
 var secondsPenalty = 5;
 var totalScore = 0;
 
@@ -80,6 +80,7 @@ function setTime() {
   
 function sendMessage() {
     timeEl.textContent = "YOU'RE OUT OF TIME";
+    endGame();
     }
 
 function endGame(){
