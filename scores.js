@@ -1,17 +1,15 @@
 
-
-var user = JSON.parse(localStorage.getItem("username"));
-
-console.log(user);
+const userScores = localStorage.getItem("scoreBoard");
+console.log(userScores);
 
 
-// var liTag = document.createElement("li");
+var liTag = document.createElement("li");
 
-// liTag.textContent =  initials + " - " + score;
+liTag.textContent =  highScores;
 
-// var olEl = document.querySelector("#highscores");
+var olEl = document.querySelector("#highscores");
 
-// olEl.appendChild(liTag);
+olEl.appendChild(liTag);
 
 var clear = document.querySelector("#clear");
 

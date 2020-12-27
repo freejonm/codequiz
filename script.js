@@ -13,6 +13,7 @@ var totalScore = 0;
 
 var i = 0;
 var score = 0;
+const scoreBoard = [];
 
 var key = [
     {
@@ -67,14 +68,14 @@ var key = [
 function saveScore(){
     const initials = prompt("Please enter your initials.");
     const entry = localStorage.getItem("points");
+   
+    scoreBoard.push([JSON.stringify(initials), JSON.stringify(entry)]);
     
-    const user = {
-        name : JSON.stringify(initials),
+    localStorage.setItem("scoreBoard", scoreBoard);
 
-        points: JSON.stringify(entry),
-    }
+    
 
-    localStorage.setItem("user", JSON.stringify(user));
+    
 }
 
 function setTime() {
