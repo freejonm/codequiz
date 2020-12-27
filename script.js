@@ -101,6 +101,20 @@ function endGame(){
     }
 }
 
+function checkAnswer(x){
+    if(x.textContent === key[i].answer){
+        alert("Correct");
+        score++;
+    }
+    else{
+        alert("Incorrect");
+        timeLoss();
+    }
+    i++;
+    runQuiz();
+}
+
+
 function timeLoss(){
     secondsLeft = secondsLeft - 5;
 }
@@ -108,46 +122,19 @@ function timeLoss(){
 
 function runQuiz(){
 
-    
     startScreen.classList.add("hide");
     questionContainer.classList.remove("hide");
     
-    if( i < key.length){ 
+    if(i < key.length){ 
         
     question.textContent = key[i].question;
     option1.textContent = key[i].choiceA;
     option2.textContent = key[i].choiceB; 
 
 
-    option1.addEventListener("click", function(){
-        if(option1.textContent === key[i].answer){
-            alert("Correct");
-            score++;
-        }
-        else{
-            alert("Incorrect");
-            timeLoss();
-        }
+    option1.addEventListener("click", checkAnswer(option1));
 
-        i++;
-        runQuiz();
-    })
-
-    option2.addEventListener("click", function(){
-
-        if(option2.textContent === key[i].answer){
-            alert("Correct");
-            score++;
-        }
-        
-        else{
-            alert("Incorrect");
-            timeLoss();
-        }
-
-        i++;
-        runQuiz();
-    })
+    option2.addEventListener("click", checkAnswer(option2));
     }
 
     else{
