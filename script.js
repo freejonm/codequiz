@@ -84,18 +84,15 @@ function sendMessage() {
 
 function endGame(){
     alert("The quiz is complete.")
+    
     totalScore = score + secondsLeft;
+    
     alert("Your total score is " + totalScore);
     
-    if (confirm("Would you like to save your initials and score?")){
-        var initials = prompt("Please enter your initials");
 
-        localStorage.setItem("score", totalScore),
-        
-        localStorage.setItem("initials", initials) 
-        
-        
+    if (confirm("Would you like to save your initials and score?")){
         window.location.href = "highscores.html";
+        localStorage.setItem("score", totalScore);
     }
 
     else {

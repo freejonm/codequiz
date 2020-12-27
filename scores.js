@@ -1,19 +1,11 @@
 
-var user = 
-  {
-    name : localStorage.getItem("initials"),
 
-    score : localStorage.getItem("score") 
-
-  }
-
-
-console.log(user.name);
-console.log(user.score);
+var initials = prompt("Please enter your initials.");
+var score = localStorage.getItem("score")
 
 var liTag = document.createElement("li");
 
-liTag.textContent =  user.name + " - " + user.score;
+liTag.textContent =  initials + " - " + score;
 
 var olEl = document.querySelector("#highscores");
 
