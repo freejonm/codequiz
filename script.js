@@ -63,6 +63,23 @@ var key = [
 ];
 
 
+
+function saveScore(){
+    const initials = prompt("Please enter your initials.");
+    const entry = localStorage.getItem("points");
+    
+    const scoreBoard = localStorage.setItem(JSON.stringify([])); 
+
+    const user = {
+        name : initials,
+
+        points: entry,
+    }
+
+    console.log(user);
+    scoreBoard.push(user);
+}
+
 function setTime() {
 
     var timerInterval = setInterval(function() {
@@ -89,11 +106,11 @@ function endGame(){
     
     alert("Your total score is " + totalScore);
     
+    localStorage.setItem("points", totalScore);
 
     if (confirm("Would you like to save your initials and score?")){
-        window.location.href = "highscores.html";
-        localStorage.setItem("highscores", JSON.stringify([]));
-        console.log(localStorage.getItem("highscores"));
+        saveScore();
+        // window.location.href = "highscores.html";
     }
 
     else {
@@ -110,6 +127,7 @@ function nextQuestion(){
     i++;
     runQuiz();
 }
+
 function runQuiz(){
 
     
@@ -156,6 +174,7 @@ function runQuiz(){
         endGame();
     }
 
+    
 }
 
 startButton.addEventListener("click", function(){
