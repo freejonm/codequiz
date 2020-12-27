@@ -89,8 +89,12 @@ function endGame(){
     
     if (confirm("Would you like to save your initials and score?")){
         var initials = prompt("Please enter your initials");
-        localStorage.setItem("score", totalScore);
-        localStorage.setItem("initials", initials);
+
+        localStorage.setItem("score", totalScore),
+        
+        localStorage.setItem("initials", initials) 
+        
+        
         window.location.href = "highscores.html";
     }
 
