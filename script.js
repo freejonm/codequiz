@@ -11,7 +11,7 @@ var secondsLeft = 100;
 var secondsPenalty = 5;
 var totalScore = 0;
 
- var i = 0;
+var i = 0;
 var score = 0;
 
 var key = [
@@ -82,11 +82,29 @@ function sendMessage() {
     timeEl.textContent = "YOU'RE OUT OF TIME";
     }
 
-function runQuiz(){
+function endGame(){
+    alert("The quiz is complete.")
+    totalScore = score + secondsLeft;
+    alert("Your total score is " + totalScore);
     
-   
+    if (confirm("Would you like to save your initials and score?")){
+        var initials = prompt("Please enter your initials");
+        localStorage.setItem("score", totalScore);
+        localStorage.setItem("initials", initials);
+        window.location.href = "highscores.html";
+    }
 
-    if((i < key.length) && (secondsLeft > 0)){
+    else {
+        alert("Thanks for playing! Goodbye.");
+        
+    }
+}
+
+
+
+function runQuiz(){
+
+    
     startScreen.classList.add("hide");
     questionContainer.classList.remove("hide");
     
@@ -130,27 +148,8 @@ function runQuiz(){
         i++;
         runQuiz();
     })
-    }
-
-    else{
-        alert("The quiz is complete.")
-        totalScore = score + secondsLeft;
-        alert("Your total score is " + totalScore);
-        
-        if (confirm("Would you like to save your initials and score?")){
-            var initials = prompt("Please enter your initials");
-            localStorage.setItem("score", totalScore);
-            localStorage.setItem("initials", initials);
-            window.location.href = "highscores.html";
-        }
-
-        else {
-            alert("Thanks for playing! Goodbye.");
-            
-        }
-
-    }
     
+
 }
 
 startButton.addEventListener("click", function(){
