@@ -38,6 +38,18 @@ var key = [
     },
 
     {
+        question: "Which of the following declares a read-only constant?",
+
+    
+        answer: "const",
+
+    
+        choiceA: "const",
+        choiceB: "var",
+    
+    },
+    
+    {
         question: "True or false: javascript is one of the four building blocks of the internet.",
 
     
@@ -48,19 +60,6 @@ var key = [
         choiceB: "False",
     
     },
-
-    {
-        question: "Which of the following declares a read-only constant?",
-
-    
-        answer: "const",
-
-    
-        choiceA: "var",
-        choiceB: "const",
-    
-    },
-    
 ];
 
 
@@ -101,20 +100,6 @@ function endGame(){
     }
 }
 
-function checkAnswer(x){
-    if(x.textContent === key[i].answer){
-        alert("Correct");
-        score++;
-    }
-    else{
-        alert("Incorrect");
-        timeLoss();
-    }
-    i++;
-    runQuiz();
-}
-
-
 function timeLoss(){
     secondsLeft = secondsLeft - 5;
 }
@@ -122,6 +107,7 @@ function timeLoss(){
 
 function runQuiz(){
 
+    
     startScreen.classList.add("hide");
     questionContainer.classList.remove("hide");
     
@@ -132,9 +118,36 @@ function runQuiz(){
     option2.textContent = key[i].choiceB; 
 
 
-    option1.addEventListener("click", checkAnswer(option1));
+    option1.addEventListener("click", function(){
+        
+        if(option1.textContent === key[i].answer){
+            alert("Correct");
+            score++;
+        }
+        else{
+            alert("Incorrect");
+            timeLoss();
+        }
 
-    option2.addEventListener("click", checkAnswer(option2));
+        i++;
+        console.log(i);
+        runQuiz();
+    })
+
+    option2.addEventListener("click", function(){
+       
+        if(option2.textContent === key[i].answer){
+            alert("Correct");
+            score++;
+        }
+        else{
+            alert("Incorrect");
+            timeLoss();
+        }
+
+        i++;
+        runQuiz();
+    })
     }
 
     else{
