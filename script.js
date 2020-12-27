@@ -9,10 +9,11 @@ var option2 = document.querySelector("#option2");
 
 var secondsLeft = 60;
 var secondsPenalty = 5;
-var totalScore = 0;
+
 
 var i = 0;
 var score = 0;
+var totalScore = 0;
 
 
 var key = [
