@@ -1,15 +1,29 @@
 
+const scoreBoard = JSON.parse(localStorage.getItem("highscores")) || [];
+
 
 var initials = prompt("Please enter your initials.");
 var score = localStorage.getItem("score")
 
-var liTag = document.createElement("li");
+const entry = {
 
-liTag.textContent =  initials + " - " + score;
+  name : initials,
 
-var olEl = document.querySelector("#highscores");
+  points : score,
 
-olEl.appendChild(liTag);
+} 
+
+scoreBoard.push(entry);
+
+console.log(scoreBoard);
+
+// var liTag = document.createElement("li");
+
+// liTag.textContent =  initials + " - " + score;
+
+// var olEl = document.querySelector("#highscores");
+
+// olEl.appendChild(liTag);
 
 var clear = document.querySelector("#clear");
 

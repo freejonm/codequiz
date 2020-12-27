@@ -92,7 +92,8 @@ function endGame(){
 
     if (confirm("Would you like to save your initials and score?")){
         window.location.href = "highscores.html";
-        localStorage.setItem("score", totalScore);
+        localStorage.setItem("highscores", JSON.stringify([]));
+        console.log(localStorage.getItem("highscores"));
     }
 
     else {
