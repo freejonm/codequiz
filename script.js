@@ -7,7 +7,7 @@ var option1 = document.querySelector("#option1");
 var option2 = document.querySelector("#option2");
 
 
-var secondsLeft = 10;
+var secondsLeft = 60;
 var secondsPenalty = 5;
 var totalScore = 0;
 
@@ -109,8 +109,8 @@ function runQuiz(){
     startScreen.classList.add("hide");
     questionContainer.classList.remove("hide");
     
-    
-
+    if( i < key.length){ 
+        
     question.textContent = key[i].question;
     option1.textContent = key[i].choiceA;
     option2.textContent = key[i].choiceB; 
@@ -149,7 +149,11 @@ function runQuiz(){
         i++;
         runQuiz();
     })
-    
+    }
+
+    else{
+        endGame();
+    }
 
 }
 
