@@ -65,15 +65,6 @@ var key = [
 ];
 
 
-function saveScore(){
-
-    initials = prompt("Please enter your initials.");
-    localStorage.setItem("initials", initials);
-    localStorage.setItem("score", totalScore);
-
-
-}
-
 function setTime() {
 
     var timerInterval = setInterval(function() {
@@ -99,18 +90,17 @@ function endGame(){
     totalScore = score + secondsLeft;
     
     alert("Your total score is " + totalScore);
+
+    localStorage.setItem("score", totalScore);
     
     
 
     if (confirm("Would you like to save your initials and score?")){
-        saveScore();
         window.location.href = "highscores.html";
     }
 
     else {
         alert("Thanks for playing! Goodbye.");
-        window.location.href = "highscores.html";
-        
     }
 }
 

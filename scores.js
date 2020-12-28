@@ -1,11 +1,18 @@
 
-var name = localStorage.getItem(("initials"));
-var score = localStorage.getItem("score");
 
+var score = localStorage.getItem("score");
+console.log(score);
+
+var name = localStorage.getItem(("initials"));
+var scoreBoard = [
+  { "name" : JSON.stringify(name), 
+    "score" : JSON.stringify(score)  
+  }
+]
 
 var liTag = document.createElement("li");
 
-liTag.textContent =  name + " - " + score;
+liTag.textContent =  scoreBoard.name + " - " + scoreBoard.score;
 
 var olEl = document.querySelector("#highscores");
 
