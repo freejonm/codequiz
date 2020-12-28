@@ -1,18 +1,26 @@
 
 
+localStorage.setItem("scoreBoard", scoreBoard);
+var scoreBoard = [];
+
 var score = localStorage.getItem("score");
-console.log(score);
 
 var initials = prompt("Please enter your initials");
-console.log(initials);
 
-var scoreBoard = [
-  { "iniitals" : initials, 
-    "score" : score  
-  }
-]
+var UserObject = {
 
-localStorage.setItem("scoreBoard", scoreBoard);
+    "name" : initials,
+
+    "score" : score
+};
+
+
+
+
+scoreBoard.push(UserObject);
+
+console.log(JSON.stringify(scoreBoard));
+
 
 // var liTag = document.createElement("li");
 
