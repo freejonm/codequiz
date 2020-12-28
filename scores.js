@@ -1,54 +1,28 @@
-
+var addBtn = document.querySelector("#add");
 var score = localStorage.getItem("score");
-
-var initials = prompt("Please enter your initials");
-
-var UserObject = {
-  "name" : initials,
-
-  "score" : score
-}
 
 var scoreBoard = [];
 
-function setScore(){
-  confirm("Click ok to save");
+addBtn.addEventListener("click", function(){
+  var initials = prompt("Please enter your initials");
+
+  var UserObject = {
+    "name" : initials,
+
+    "score" : score
+}
   localStorage.setItem("entry", JSON.stringify(UserObject));
   scoreBoard.push(UserObject);
   localStorage.setItem("scoreboard", JSON.stringify(scoreBoard));
   console.log(scoreBoard.length);
-}
-
-setScore();
-
-
-
-
-
-
-
-
-// var UserObject = {
-
-//     "name" : initials,
-
-//     "score" : score
-// };
-
-
-// scoreBoard.push(UserObject);
-
-// console.log(JSON.stringify(UserObject.name));
-// console.log(scoreBoard.length);
-
-
+});
 
 
 
 
 // var liTag = document.createElement("li");
 
-// liTag.textContent =  scoreBoard.name + " - " + score;
+// liTag.textContent =  scoreBoard.UserObject.name;
 
 // var olEl = document.querySelector("#highscores");
 
