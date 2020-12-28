@@ -4,25 +4,28 @@ var score = localStorage.getItem("score");
 console.log(score);
 
 var initials = prompt("Please enter your initials");
+console.log(initials);
 
 var scoreBoard = [
-  { "name" : JSON.stringify(name), 
-    "score" : JSON.stringify(score)  
+  { "iniitals" : initials, 
+    "score" : score  
   }
 ]
 
-var liTag = document.createElement("li");
+localStorage.setItem("scoreBoard", scoreBoard);
 
-liTag.textContent =  scoreBoard.name + " - " + score;
+// var liTag = document.createElement("li");
 
-var olEl = document.querySelector("#highscores");
+// liTag.textContent =  scoreBoard.name + " - " + score;
 
-olEl.appendChild(liTag);
+// var olEl = document.querySelector("#highscores");
 
-var clear = document.querySelector("#clear");
+// olEl.appendChild(liTag);
 
-clear.addEventListener("click", function(){
-  while (highscores.lastElementChild){
-    highscores.removeChild(highscores.lastElementChild);
-  }
-})
+// var clear = document.querySelector("#clear");
+
+// clear.addEventListener("click", function(){
+//   while (highscores.lastElementChild){
+//     highscores.removeChild(highscores.lastElementChild);
+//   }
+// })
