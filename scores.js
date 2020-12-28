@@ -3,7 +3,8 @@
 var score = localStorage.getItem("score");
 console.log(score);
 
-var name = localStorage.getItem(("initials"));
+var initials = prompt("Please enter your initials");
+
 var scoreBoard = [
   { "name" : JSON.stringify(name), 
     "score" : JSON.stringify(score)  
@@ -12,7 +13,7 @@ var scoreBoard = [
 
 var liTag = document.createElement("li");
 
-liTag.textContent =  scoreBoard.name + " - " + scoreBoard.score;
+liTag.textContent =  scoreBoard.name + " - " + score;
 
 var olEl = document.querySelector("#highscores");
 
