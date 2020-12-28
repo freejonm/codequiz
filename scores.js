@@ -1,24 +1,27 @@
 
-
-
-
-
 var score = localStorage.getItem("score");
 
 var initials = prompt("Please enter your initials");
 
+var UserObject = {
+  "name" : initials,
+
+  "score" : score
+}
+
 var scoreBoard = [];
 
-
-if(scoreBoard.length === 0){
-  scoreBoard[0] = initials;
-  localStorage.setItem("scoreBoard", scoreBoard);
+function setScore(){
+  confirm("Click ok to save");
+  localStorage.setItem("entry", JSON.stringify(UserObject));
+  scoreBoard.push(UserObject);
+  localStorage.setItem("scoreboard", JSON.stringify(scoreBoard));
+  console.log(scoreBoard.length);
 }
-else{
-  scoreBoard.push(initials);
-}
 
-console.log(scoreBoard);
+setScore();
+
+
 
 
 
