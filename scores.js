@@ -15,23 +15,24 @@ addBtn.addEventListener("click", function(){
   scoreBoard.push(UserObject);
   localStorage.setItem("scoreboard", JSON.stringify(scoreBoard));
   console.log(scoreBoard.length);
+
+var liTag = document.createElement("li");
+
+liTag.textContent =  initials + " - " + score;
+
+var olEl = document.querySelector("#highscores");
+
+olEl.appendChild(liTag);
 });
 
 
 
 
-// var liTag = document.createElement("li");
 
-// liTag.textContent =  scoreBoard.UserObject.name;
+var clear = document.querySelector("#clear");
 
-// var olEl = document.querySelector("#highscores");
-
-// olEl.appendChild(liTag);
-
-// var clear = document.querySelector("#clear");
-
-// clear.addEventListener("click", function(){
-//   while (highscores.lastElementChild){
-//     highscores.removeChild(highscores.lastElementChild);
-//   }
-// })
+clear.addEventListener("click", function(){
+  while (highscores.lastElementChild){
+    highscores.removeChild(highscores.lastElementChild);
+  }
+})
